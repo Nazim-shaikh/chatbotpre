@@ -1,0 +1,54 @@
+* {
+	margin: 0;
+	color:#000;
+	font-family: Arial;
+	font-size: 2vmax;
+	background: url(back.jpg);
+	
+}
+
+div {
+	min-height: 100px;
+    max-width: 100%;
+	overflow-y: auto;
+	overflow-x: auto;
+}
+div > p {
+        
+	padding: 0.5rem;
+	text-align: center;
+	margin: 0.2rem;
+}
+.bot {
+	background: #9bff4d52;
+	left: 0px;
+	color: #fff;
+	min-height: 40px;
+    max-width: 60%;
+	text-align: left;
+    padding: 15px;
+	border-radius: 0px 25px 25px 25px;
+    margin: 15px 0;
+	
+}
+.user {
+	background: #32a6bf4d;
+	color: #fff;
+	text-align: right;
+	border-radius: 50px 25px 0px 25px;
+	min-height: 40px;
+    max-width: 60%;
+    padding: 15px;
+    margin: 15px 0;
+	overflow:auto;
+}
+
+input {
+      background: #fff;
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     border-radius: 25px 25px 25px 25px;
+	
+}

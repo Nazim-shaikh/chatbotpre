@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head><link rel="stylesheet" href="beautiful.css">
+	
+	</head>
+	<body>
+	
+	<center>
+		<div></div>
+		<input onchange="respond()">
+		<script type="text/javascript">
+        
+			var known = [
+				["hello", "hi"],
+				["i am *", "are you *?"],
+				["say please", "*"],
+				["say", "say please"],
+				["hi", "hello"],
+				["what is your name", "i am bot"],
+				["who are you", "i am bot"],
+				["no", "hmm"],
+				["yes", "ok"],
+				["i love you", "love you too"],
+				["i miss you", "miss you too"],
+				["what is funded", "its app where you are simple donate"],
+				["what is your age", "i dont have age"],
+				["age", "i dont have any age"],
+				["are you human", "no"],
+				["you are human", "hey no"],
+				["you have feeling", "no"],
+				["you are hungry", "ha ha no"],
+				["are you human", "no no"],
+				["nothing", "hmm"],
+			];
+
+			var input = document.querySelector('input');
+			var output = document.querySelector('div');
+
+			function postChat(text, poster) {
+				var bubble = document.createElement("p");
+				bubble.innerText = text;
+				bubble.className = poster;
+				output.appendChild(bubble);
+			}
+
+			function respond() {
+				var text = input.value;
+				input.value = "";
+				postChat(text, "user");
+				response = think(text);
+				postChat(response, "bot");
+			}
+
+			function filter(text) {
+				text = text.toLowerCase();
+				return(text);
+			}
+
+			function think(user) {
+				user = filter(user);
+
+				
+			for (var [key, value] of known) {
+					if (key.includes('*')) {
+						key = key.split('*');
+
+						if (user.startsWith(key[0]) && user.endsWith(key[1])) {
+							firstIndex = key[0].length;
+							finalIndex = user.lastIndexOf(key[1]);
+							custom = user.slice(firstIndex, finalIndex);
+							return(value.replace('*', custom));
+						}
+					} else if (user == key) {
+						return(value);
+					}
+				}
+				return("What?");
+			}
+		</script>
+		
+		</center>
+	</body>
+</html>
